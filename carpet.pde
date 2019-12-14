@@ -9,8 +9,9 @@ int[][] rule = { //We start out with the classic Sierpinski Carpet
  1,1,1}
 };
 int initial = 1;
+color[] pixel_colors = {color(255), color(0)};
 
-int WINDOW_POWER = 6; //maximum is 6 (Decrease to increase performance, Increase to see more coolness)
+int WINDOW_POWER = 7; //maximum is 7 (Decrease to increase performance, Increase to see more coolness)
 int WINDOW_SIZE = 729; //Size of the window (if you change this, change the parameters to size as well)
 int SHOW_TOP_LEVEL = 1; //Show the grid
 
@@ -161,14 +162,15 @@ void drawCarpet()
   {
     for (int y = 0; y < getAxisSize(carpet); y++)
     {
-      if (getCoordinate(carpet, x, y) == 0)
-      {
-        drawScaledPixel(x, y, white);
-      }
-      else
-      {
-        drawScaledPixel(x, y, black);
-      }
+      drawScaledPixel(x, y, pixel_colors[getCoordinate(carpet, x, y)]);
+      //if (getCoordinate(carpet, x, y) == 0)
+      //{
+      //  drawScaledPixel(x, y, white);
+      //}
+      //else
+      //{
+      //  drawScaledPixel(x, y, black);
+      //}
     }
   }
   
